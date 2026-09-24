@@ -1,0 +1,19 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/reports/
+/allure-report/
+//allure-results/
+
+config/.env.*
+
+#build
+dist/
+
+#DS files
+.DS_Store
