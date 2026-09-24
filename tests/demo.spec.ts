@@ -1,1 +1,4 @@
-class Demo { }
+export class Demo {
+
+    x = 10;
+}
