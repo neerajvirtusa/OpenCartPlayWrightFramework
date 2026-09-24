@@ -29,6 +29,7 @@ test('user is able to login to app', async ({ loginPage, homePage }) => {
 //DD_0: using test data from fixtures: sequence run
 test(`login to app with invalid credentials with fixture data`, async ({ loginPage, testData }) => {
     for (let row of testData) {
+
         await loginPage.doLogin(row.username, row.password);
         expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
 
