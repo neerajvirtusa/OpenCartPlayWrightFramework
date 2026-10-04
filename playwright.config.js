@@ -31,7 +31,16 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 2 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: process.env.CI
+    ? [
+      ['list'],
+      ['html', { outputFolder: "reports/html-report", open: "never" }],  
+    ]
+    :
+    [
+      ['list'],
+      ['html', { outputFolder: "reports/html-report", open: "never" }],
+    ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -43,7 +52,7 @@ export default defineConfig({
     // baseURL: 'http://www.naveenautomationlabs.com',
     baseURL: process.env.BASE_URL,
     screenshot: 'on'
-    
+
 
   },
 
